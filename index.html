@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Skúli´s Playground</title>
+    <script type="text/javascript" src="scripts/d3.js"></script>
+    <script type="text/javascript" src="scripts/d3tip.js"></script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="scripts/iceland.js"></script>
+    <script type="text/javascript" src="scripts/gasstations.js"></script>
+    <script type="text/javascript" src="scripts/eartquakes.js"></script>
+    <link rel="stylesheet" href="styles/styles.css"> 
+    <link rel="stylesheet" href="styles/gasstations.css"> 
+    <link rel="stylesheet" href="styles/eartquakes.css"> 
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"> 
+    </head>
+
+<body>
+    <script type="text/javascript">
+        document.body.onload = function(){
+            loadGeoJSONData();
+        };
+        
+        function showEarthquakes() {
+            loadEarthquakes();
+            document.getElementById("eartquaketxt").className = '';
+            document.getElementById("pricelabels").className = 'hidden';    
+        }
+        
+        function showGasstations() {
+            loadGasStations();
+            document.getElementById("eartquaketxt").className = 'hidden';
+            document.getElementById("pricelabels").className = '';  
+        }
+        
+    </script>
+    <div id="buttons" class="btn-group-justified" style="width: 960px" data-toggle="buttons">
+        <label id="btnShowGasstations" class="btn btn-info" onclick="showGasstations()" style="outline: 0">
+            <input type="radio" name="options" autocomplete="off">GasStations
+        </label>
+        <label class="btn btn-info" onclick="showEarthquakes()" style="outline: 0">
+            <input type="radio" name="options" autocomplete="off">Earthquakes
+        </label>
+    </div>
+    <div id="pricelabels" class="hidden">
+        <div>
+            <label class="info">Last price check: <span class="badge" id="priceCheck"></span></label>
+        </div>
+        <div>
+            <label class="info">Last price change: <span class="badge" id="priceChange"></span></label>
+        </div>
+        <div>
+            <label class="info">Places with lowest price --> <span class="info" id="lowestPriceTxt"></span> <span class="badge" id="lowestPrice"></span></label>
+        </div>
+        <div>
+            <label class="info">Highest price: <span class="badge" id="highestPrice"></span></label>
+        </div>
+    </div>
+    <div id="eartquaketxt" class="hidden">
+        <label class="info">Eartquakes in Iceland past 48 hours. Hover over the dots to see detailed info</label>
+    </div>
+    <div id="map">
+    </div>
+</body>
+</html>

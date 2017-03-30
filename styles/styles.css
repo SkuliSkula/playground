@@ -1,0 +1,15 @@
+body {
+    
+}
+
+#iceland {
+    fill: #E5F5F9;
+    stroke: #2CA25F;
+    stroke-width: 0.5;
+}
+
+#buttons {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
